@@ -27,6 +27,7 @@ Streaming responses for interactive querying
  Non-Agentic RAG (Deterministic Chain)
 
 ```mermaid
+flowchart TD
     User_Query[User Query] --> Retriever[Retriever (Vector Store Search)]
     Retriever --> Context[Context Injection into Prompt]
     Context --> LLM[LLM]
@@ -38,7 +39,7 @@ Retrieval always happens and it is fixed execution pipeline. It is deterministic
  Agentic RAG (Tool-Using Agent)
 
 ```mermaid
-
+flowchart TD
     User_Query[User Query] --> Agent_Reasoning[Agent Reasoning]
     Agent_Reasoning --> Decision{Call retrieval tool?}
     Decision -->|Yes| Retrieve_Context[Retrieve Context]
