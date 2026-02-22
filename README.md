@@ -26,43 +26,28 @@ Streaming responses for interactive querying
    
  Non-Agentic RAG (Deterministic Chain)
 
-User Query 
-
-    ↓
-
-Retriever (Vector Store Search)
-
-    ↓
-Context Injection into Prompt
-    ↓
-
-LLM
-
-    ↓
-
-Final Answer
+```mermaid
+    User_Query[User Query] --> Retriever[Retriever (Vector Store Search)]
+    Retriever --> Context[Context Injection into Prompt]
+    Context --> LLM[LLM]
+    LLM --> Final[Final Answer]
+```
 
 Retrieval always happens and it is fixed execution pipeline. It is deterministic and efficient.
 
  Agentic RAG (Tool-Using Agent)
 
-User Query
+```mermaid
 
-    ↓
+    User_Query[User Query] --> Agent_Reasoning[Agent Reasoning]
+    Agent_Reasoning --> Decision{Call retrieval tool?}
+    Decision -->|Yes| Retrieve_Context[Retrieve Context]
+    Decision -->|No| Skip[Proceed without retrieval]
+    Retrieve_Context --> Final[LLM Generates Final Answer]
+    Skip --> Final
+ ```
 
-Agent Reasoning
-
-    ↓
-
-Decides whether to call retrieval tool
-
-    ↓
-
-Retrieves context (if needed)
-
-    ↓
-    
-LLM generates final answer. Model dynamically decides when to retrieve supports reasoning + tool usage more flexible for complex queries.
+Model dynamically decides when to retrieve supports reasoning + tool usage more flexible for complex queries.
 
 
  Tech Stack
