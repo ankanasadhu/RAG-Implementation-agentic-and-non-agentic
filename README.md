@@ -28,7 +28,7 @@ Streaming responses for interactive querying
 
 ```mermaid
 flowchart TD
-    User_Query[User Query] --> Retriever[Retriever (Vector Store Search)]
+    User_Query[User Query] --> Retriever[Retriever - Vector Store Search]
     Retriever --> Context[Context Injection into Prompt]
     Context --> LLM[LLM]
     LLM --> Final[Final Answer]
