@@ -1,10 +1,10 @@
-* RAG Implementation: Agentic and Non-Agentic
+## RAG Implementation: Agentic and Non-Agentic
 
 This repository demonstrates a Proof of Concept (POC) for implementing both non-agentic (deterministic) RAG pipelines and agentic RAG systems using LangChain and LLMs.
 
 The project highlights the architectural and functional differences between traditional Retrieval-Augmented Generation (RAG) workflows and agent-based RAG systems.
 
-* Overview
+* # Overview
 
 This notebook walks through:
 
@@ -22,42 +22,50 @@ Building an agentic RAG system using LangChain agents
 
 Streaming responses for interactive querying
 
- * Architecture
+ * # Architecture
+   
  Non-Agentic RAG (Deterministic Chain)
+
 User Query 
+
     ↓
+
 Retriever (Vector Store Search)
+
     ↓
 Context Injection into Prompt
     ↓
+
 LLM
+
     ↓
+
 Final Answer
 
-Retrieval always happens
-
-Fixed execution pipeline
-
-Deterministic and efficient
+Retrieval always happens and it is fixed execution pipeline. It is deterministic and efficient.
 
  Agentic RAG (Tool-Using Agent)
+
 User Query
+
     ↓
+
 Agent Reasoning
+
     ↓
+
 Decides whether to call retrieval tool
+
     ↓
+
 Retrieves context (if needed)
+
     ↓
-LLM generates final answer
+    
+LLM generates final answer. Model dynamically decides when to retrieve supports reasoning + tool usage more flexible for complex queries.
 
-Model dynamically decides when to retrieve
 
-Supports reasoning + tool usage
-
-More flexible for complex queries
-
-🛠️ Tech Stack
+ Tech Stack
 
 Python
 
